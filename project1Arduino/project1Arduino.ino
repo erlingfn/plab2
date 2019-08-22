@@ -32,7 +32,7 @@ int calcPause(int mlsec) {
         return 0;
     } else if(mlsec <= 3 * period)  {
         return 1;
-    } else if(mlsec <= 7 * period) {
+    } else {
         return 2;
     }
 }
@@ -40,21 +40,21 @@ int calcPause(int mlsec) {
 int calcSignal(int lastVal, int pause) {
     //short pause
     if(lastVal == 0 && pause == 0) {
-        return 0;
+        return 4;
     //medium pause
     } else if(lastVal == 0 && pause == 1){
-        return 1;
+        return 2;
     //long pause
     } else if(lastVal == 0 && pause == 2){
-        return 2;
-    //short push
+        return 3;
+    //short push(dot)
     } else if(lastVal == 1 && pause == 0){
         digitalWrite(dotPin, HIGH);
-        return 3;
-    //medium push
+        return 0;
+    //medium push(dash)
     } else if(lastVal == 1 && (pause == 1 || pause == 2 )){
         digitalWrite(dashPin, HIGH);
-        return 4;
+        return 1;
     }
 }
 
@@ -96,7 +96,7 @@ void loop() {
         startMillis = millis();
         lastBtnVal = btnVal;
         //do not send signal on short pause
-        if(signalToSend != 0){
+        if(signalToSend != 4){
             Serial.println(signalToSend);
         }
     }
