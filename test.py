@@ -1,6 +1,6 @@
 class Dog:
 
-    #Class Attributes
+    # Class Attributes
     species = 'mammal'
 
     def __init__(self, name, age):
@@ -26,5 +26,5 @@ A = Dog("Goya", 10)
 B = Dog("Ciao", 9)
 C = Dog("Wixie", 5)
 
-print("The oldest dog is",
-      get_biggest_number(A.get_age(), B.get_age(), C.get_age()))
+print("The oldest dog is", get_biggest_number(
+    A.get_age(), B.get_age(), C.get_age()))
