@@ -28,3 +28,6 @@ class Aksjon:
         if self.action_type == "papir" and other.action_type == "saks":
             return True
         return False
+
+    def __str__(self):
+        return self.action_type
