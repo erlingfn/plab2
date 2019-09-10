@@ -1,5 +1,5 @@
+""" A tournament of two players with plot support method"""
 import matplotlib.pyplot as plt
-import numpy as np
 
 from Enkeltspill import Enkeltspill
 
@@ -23,23 +23,24 @@ class Mangespill:
             # append plotting data
             self.percentage_data.append(self.spiller2.points / (i + 1))
             self.games_played.append(i)
+            print(spill.string)
         gevinst_prosent = self.spiller1.points / self.antall_spill * 100
         gevinst_prosent2 = self.spiller2.points / self.antall_spill * 100
         print(self.spiller1.oppgi_navn() + ": " + str(gevinst_prosent) + "% " +
               self.spiller2.oppgi_navn() + ": " + str(gevinst_prosent2) + "%")
 
         # plot
-        fig, ax = plt.subplots(1, 1)
-        my_plotter(ax, self.games_played, self.percentage_data)
+        fig, axes = plt.subplots(1, 1)
+        my_plotter(axes, self.games_played, self.percentage_data)
 
 
-def my_plotter(ax, data1, data2):
+def my_plotter(axes, data1, data2):
     """
     A helper function to make a graph
 
     Parameters
     ----------
-    ax : Axes
+    axes : Axes
         The axes to draw to
 
     data1 : array
@@ -49,12 +50,12 @@ def my_plotter(ax, data1, data2):
        The y data
 
     param_dict : dict
-       Dictionary of kwargs to pass to ax.plot
+       Dictionary of kwargs to pass to axes.plot
 
     Returns
     -------
     out : list
         list of artists added
     """
-    ax.plot(data1, data2)
+    axes.plot(data1, data2)
     plt.show(block=True)

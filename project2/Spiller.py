@@ -1,3 +1,6 @@
+""" Base player class """
+
+
 class Spiller:
     """ Represents a player in rock paper scissor"""
 
@@ -15,4 +18,5 @@ class Spiller:
         """ Recieve result from Enkeltspill """
 
     def oppgi_navn(self):
+        """ Return name of player instance"""
         return self.name
