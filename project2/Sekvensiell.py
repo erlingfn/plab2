@@ -1,9 +1,9 @@
-from Spiller import Spiller
 from Aksjon import Aksjon
+from Spiller import Spiller
 
 
 class Sekvensiell(Spiller):
-    """ Player class the sequence stein, saks, papir continuasly"""
+    """ Player class the sequence stein, saks, papir continuasly """
 
     sekvens = ["stein", "saks", "papir"]
 
